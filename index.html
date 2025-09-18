@@ -32,6 +32,14 @@
 		<meta name="theme-color" content="#769f2f" />
 		<link rel="preload" href="./images/damen001.jpg" as="image" />
 		<style>
+			/* 修改：简介内嵌图的外边距与居中 */
+			.about-inline{margin:0 0 1rem;}
+			.about-inline img{display:block;margin:0 auto;}
+
+
+			.hero-figure{aspect-ratio:16/9;}
+			.hero-figure picture,.hero-figure img{width:100%;height:100%;object-fit:cover;display:block;}
+
 			:root {
 				color-scheme: light;
 				--primary: #769f2f;
@@ -507,32 +515,37 @@
 									</div>
 					<figure class="hero-figure">
 						<picture>
-							<source srcset="./images/damen002.jpg" media="(max-width: 768px)" />
-							<img src="./images/damen001.jpg" alt="山东恒仁集团现代化厂区全景图" width="960" height="540" />
+							<source srcset="./images/p1.jpg" media="(max-width: 768px)" />
+							<img src="./images/p1.jpg" alt="山东恒仁集团现代化厂区全景图" width="960" height="540" />
 						</picture>
-						<figcaption>现代化厂区与数字化生产控制中心</figcaption>
+						<figcaption>自动化产线</figcaption>
 					</figure>
 				</div>
 			</section>
 
-			<section class="section" id="about">
-				<h2>关于恒仁集团</h2>
-				<div class="overview">
-					<figure>
-						<img src="./images/大门.jpg" alt="山东恒仁集团办公大楼与园区大门" width="540" height="360" loading="lazy" />
-					</figure>
-					<article>
-						<!-- 修改：公司介绍用语更客观，保留权威称号 -->
-						<p>山东恒仁(集团)工贸有限公司成立于1996年，位于山东省滕州市东郭镇辛绪工业园，主要从事玉米深加工、淀粉糖生产、植物油及副产综合利用等业务。公司现有员工1800余人，先后获得“农业产业化国家重点龙头企业”“中国农业企业500强”“中国粮油企业50强”等称号。
-						</p>
-						<ul>
-							<li>注册资本 7000 万元，持续加大智能化装备投入。</li>
-							<li>通过 ISO 质量管理、食品安全等多项体系认证。</li>
-							<li>建立完善的研发中心与技术团队，可提供定制化解决方案。</li>
-						</ul>
-					</article>
-				</div>
-			</section>
+<section class="section" id="about">
+  <!-- <h2>山东 . 恒仁</h2> -->
+  <div class="overview">
+    <!-- 左列：图片（恢复为独立列） -->
+    <figure>
+      <img src="./images/大门.jpg" alt="山东恒仁集团办公大楼与园区大门"
+           width="540" height="360" loading="lazy" decoding="async"
+           style="width:100%;height:auto;max-width:540px;max-height:400px;object-fit:cover;border-radius:8px;" />
+    </figure>
+
+    <!-- 右列：简介 -->
+    <article>
+      <!-- 公司介绍用语更客观，保留权威称号 -->
+      <p>山东恒仁(集团)工贸有限公司成立于1996年，位于山东省滕州市东郭镇辛绪工业园，主要从事玉米深加工、淀粉糖生产、植物油及副产综合利用等业务。公司现有员工1800余人，先后获得“农业产业化国家重点龙头企业”“中国农业企业500强”“中国粮油企业50强”等称号。</p>
+      <ul>
+        <li>注册资本 7000 万元，持续加大智能化装备投入。</li>
+        <li>通过 ISO 质量管理、食品安全等多项体系认证。</li>
+        <li>建立完善的研发中心与技术团队，可提供定制化解决方案。</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
 
 			<section class="section" id="products">
 				<h2>核心产品矩阵</h2>
