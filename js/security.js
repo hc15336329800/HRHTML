@@ -8,4 +8,4 @@
     } catch (error) {
         window.location.href = window.location.href;
     }
-})();
+})();	
