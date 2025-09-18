@@ -303,15 +303,48 @@
 				border-radius: 12px;
 				padding: 1rem 1.25rem;
 				background: rgba(118, 159, 47, 0.08);
-				display: flex;
-				justify-content: space-between;
-				align-items: baseline;
-				gap: 1rem;
-				flex-wrap: wrap;
+				display: grid;
+				grid-template-columns: minmax(0, 1fr) auto;
+				column-gap: 1rem;
+				row-gap: 0.4rem;
+				align-items: center;
 			}
 
-			.capacity-item span {
+			.capacity-name {
 				font-weight: 600;
+			}
+
+			.capacity-value {
+				font-weight: 600;
+				justify-self: end;
+				color: var(--primary);
+			}
+
+			.capacity-note {
+				grid-column: 1 / -1;
+				color: var(--muted);
+				font-size: 0.9rem;
+				line-height: 1.5;
+			}
+
+			@media (max-width: 640px) {
+				.capacity-list {
+					gap: 0.5rem;
+				}
+
+				.capacity-item {
+					padding: 0.75rem 0.9rem;
+					row-gap: 0.3rem;
+				}
+
+				.capacity-name,
+				.capacity-value {
+					font-size: 0.95rem;
+				}
+
+				.capacity-note {
+					font-size: 0.8rem;
+				}
 			}
 
 			.news-grid {
@@ -845,13 +878,37 @@
 			<section class="section" id="capacity">
 				<h2>规模化产能与品质保障</h2>
 				<ul class="capacity-list">
-					<li class="capacity-item"><span>年产食用玉米淀粉 130 余万吨</span><small>相关质量按制度与标准执行</small></li>
-					<li class="capacity-item"><span>麦芽糖浆 45 余万吨</span><small>固形物含量约 75%-80%，按订单需求组织生产</small></li>
-					<li class="capacity-item"><span>喷浆玉米皮 15 余万吨</span><small>蛋白含量约 17%，参数以检测为准</small></li>
-					<li class="capacity-item"><span>玉米蛋白粉 10 余万吨</span><small>蛋白含量约 50%-60%，动物饲料添加</small></li>
+					<li class="capacity-item">
+						<span class="capacity-name">年产食用玉米淀粉</span>
+						<span class="capacity-value">130 余万吨</span>
+						<small class="capacity-note">相关质量按制度与标准执行</small>
+					</li>
+					<li class="capacity-item">
+						<span class="capacity-name">麦芽糖浆</span>
+						<span class="capacity-value">45 余万吨</span>
+						<small class="capacity-note">固形物含量约 75%-80%，按订单需求组织生产</small>
+					</li>
+					<li class="capacity-item">
+						<span class="capacity-name">喷浆玉米皮</span>
+						<span class="capacity-value">15 余万吨</span>
+						<small class="capacity-note">蛋白含量约 17%，参数以检测为准</small>
+					</li>
+					<li class="capacity-item">
+						<span class="capacity-name">玉米蛋白粉</span>
+						<span class="capacity-value">10 余万吨</span>
+						<small class="capacity-note">蛋白含量约 50%-60%，动物饲料添加</small>
+					</li>
 					<!-- 修改：措辞避免“优良/保证”，改为客观表达 -->
-					<li class="capacity-item"><span>玉米胚芽 10 余万吨</span><small>含油率约 38%-40%，适用于植物油加工等场景</small></li>
-					<li class="capacity-item"><span>玉米浆 8 余万吨</span><small>波美度约 18°，以检测数据与合同约定为准</small></li>
+					<li class="capacity-item">
+						<span class="capacity-name">玉米胚芽</span>
+						<span class="capacity-value">10 余万吨</span>
+						<small class="capacity-note">含油率约 38%-40%，适用于植物油加工等场景</small>
+					</li>
+					<li class="capacity-item">
+						<span class="capacity-name">玉米浆</span>
+						<span class="capacity-value">8 余万吨</span>
+						<small class="capacity-note">波美度约 18°，以检测数据与合同约定为准</small>
+					</li>
 				</ul>
 			</section>
 
@@ -890,8 +947,10 @@
 				<section>
 					<h3>联系我们</h3>
 					<ul>
-						<li><strong>电话：</strong><a href="tel:0632-5155595">0632-5155595</a> / <a
-								href="tel:13356379916">133-5637-9916</a><span class="badge">点击拨打</span></li>
+						<li><strong>电话：</strong><a href="tel:0632-5155595">0632-5155595</a> / 
+						<!-- <a href="tel:13356379916">133 5637 9916</a><span class="badge">点击拨打</span></li> -->
+						  <a href="tel:13356379916">133 5637 9916 <span class="badge">点击拨打</span></a>
+
 						<li><strong>邮箱：</strong><a href="mailto:sdhrjt168@163.com">sdhrjt168@163.com</a></li>
 						<li><strong>网址：</strong><a href="https://www.sdhrjt.net/"
 								rel="noopener noreferrer">www.sdhrjt.net</a></li>
@@ -919,9 +978,9 @@
 						<img src="./images/备案图标.png" alt="鲁公网安备图标" width="16" height="16"
 							style="vertical-align:middle;margin-right:4px;" />鲁公网安备 37048102006103号
 					</a>
-					<span class="badge">|</span>
+					<!-- <span class="badge">|</span> -->
 					<a href="https://beian.miit.gov.cn/" rel="noopener noreferrer"
-						style="color:#fff;">鲁ICP备19000392号-2</a>
+						style="color:#fff;"> | 鲁ICP备19000392号-2</a>
 				</p>
 			</div>
 		</footer>
