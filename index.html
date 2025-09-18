@@ -246,7 +246,7 @@
 
 			.product-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 				gap: 1.5rem;
 			}
 
@@ -457,15 +457,15 @@
 					text-align: center;
 				}
 
-				                                nav ul {
-				                                        justify-content: center;
-				                                        gap: 0.5rem 0.75rem;
-				                                }
-				
-				                                nav a {
-				                                        min-width: 5.5rem;
-				                                        text-align: center;
-				                                }
+				nav ul {
+					justify-content: center;
+					gap: 0.5rem 0.75rem;
+				}
+
+				nav a {
+					min-width: 5.5rem;
+					text-align: center;
+				}
 
 				.hero-inner {
 					padding-top: 2.5rem;
@@ -475,7 +475,6 @@
 					padding: 2.5rem 1rem;
 				}
 
-				.product-grid,
 				.news-grid,
 				.overview {
 					grid-template-columns: 1fr;
@@ -516,6 +515,12 @@
 				}
 			}
 
+			@media (max-width: 380px) {
+				.product-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
 			/* <=600px：手机端头部优化——logo 变小、标题与副标题同一行 */
 			/* <=600px：手机端头部优化——logo 变小、标题保持主副两行 */
 			@media (max-width: 600px) {
@@ -553,26 +558,26 @@
 					min-width: 0;
 				}
 
-				
-				                                .brand strong {
-				                                        display: block;
-				                                        /* 主标题独占一行 */
-				                                        font-size: 1.12rem;
-				                                        line-height: 1.22;
-				                                }
-				
-								.brand strong::after {
-									/* 移除单行分隔符 */
-									content: none;
-								}
-				
-				                                .brand span {
-				                                        display: block;
-				                                        font-size: 1rem;
-				                                        line-height: 1.24;
-				                                        color: var(--muted);
-				                                }
-							}
+
+				.brand strong {
+					display: block;
+					/* 主标题独占一行 */
+					font-size: 1.12rem;
+					line-height: 1.22;
+				}
+
+				.brand strong::after {
+					/* 移除单行分隔符 */
+					content: none;
+				}
+
+				.brand span {
+					display: block;
+					font-size: 1rem;
+					line-height: 1.24;
+					color: var(--muted);
+				}
+			}
 
 
 			/* 手机端通用：≤768px */
@@ -678,19 +683,19 @@
 					text-align: center;
 				}
 
-				
-				                                nav ul li a,
-				                                .nav ul li a,
-				                                .site-nav ul li a,
-				                                #nav ul li a {
-				                                        display: block;
-				                                        padding: 0.65rem 0.4rem;
-				                                        font-size: 1rem;
-				                                        line-height: 1.3;
-				                                        white-space: nowrap;
-				                                        /* 始终横向 */
-				                                }
-				                        }
+
+				nav ul li a,
+				.nav ul li a,
+				.site-nav ul li a,
+				#nav ul li a {
+					display: block;
+					padding: 0.65rem 0.4rem;
+					font-size: 1rem;
+					line-height: 1.3;
+					white-space: nowrap;
+					/* 始终横向 */
+				}
+			}
 		</style>
 
 
