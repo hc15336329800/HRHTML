@@ -500,6 +500,213 @@
                                         text-align: left;
                                 }
                         }
+						
+						/* <=600px：手机端头部优化——logo 变小、标题与副标题同一行 */
+						@media (max-width: 600px) {
+						  /* 覆盖原先在手机端把 brand 纵向堆叠的写法 */
+						  .topbar { gap: .8rem; }
+						  .brand {
+						    flex-direction: row;       /* 横向排布 */
+						    align-items: center;
+						    justify-content: center;
+						    gap: .5rem;
+						    min-width: auto;
+						    text-align: left;
+						  }
+						  .brand img {
+						    width: 120px;              /* logo 缩小 */
+						    height: auto;
+						  }
+						  .brand > div {
+						    display: flex;             /* 标题+副标题并排一行 */
+						    align-items: baseline;
+						    gap: .35rem;
+						    white-space: nowrap;       /* 禁止换行 */
+						    overflow: hidden;          /* 超出裁切 */
+						    text-overflow: ellipsis;   /* 显示省略号 */
+						    min-width: 0;              /* 允许弹性项正确溢出省略 */
+						  }
+						  .brand strong {
+						    display: inline;           /* 改回行内，便于同排 */
+						    font-size: .95rem;
+						    line-height: 1.1;
+						  }
+						  .brand strong::after {       /* 中间分隔符 */
+						    content: "｜";
+						    margin: 0 .25rem;
+						    color: #9aa38a;
+						    font-weight: 400;
+						  }
+						  .brand span {
+						    display: inline;
+						    font-size: .85rem;
+						    line-height: 1.1;
+						    color: var(--muted);
+						  }
+						}
+						
+						/* <=420px：更小屏的二次压缩 */
+						@media (max-width: 420px) {
+						  .brand img { width: 96px; }      /* 再小一点 */
+						  .brand strong { font-size: .9rem; }
+						  .brand span   { font-size: .8rem; }
+						}
+						
+						/* 6.1寸及以上手机（常见视口宽≥390px）专用优化：logo 小一号，标题+副标题同一行 */
+						@media (min-width: 390px) and (max-width: 600px) {
+						  .topbar { gap: .8rem; }
+						
+						  /* 让品牌区横向排列（覆盖原先的 column） */
+						  .brand {
+						    flex-direction: row;
+						    align-items: center;
+						    justify-content: center;
+						    text-align: left;
+						    min-width: auto;
+						    gap: .5rem;
+						  }
+						
+						  /* 缩小 logo（用 clamp 随屏宽微调） */
+						  .brand img {
+						    width: clamp(96px, 22vw, 130px);
+						    height: auto;
+						  }
+						
+						  /* 标题+副标题同一行，并在超宽时省略号 */
+						  .brand > div {
+						    display: flex;
+						    align-items: baseline;
+						    gap: .35rem;
+						    white-space: nowrap;
+						    overflow: hidden;
+						    text-overflow: ellipsis;
+						    min-width: 0;
+						  }
+						
+						  /* 标题行内显示，并加入分隔符“｜” */
+						  .brand strong {
+						    display: inline;
+						    font-size: clamp(1rem, 2.6vw, 1.18rem);
+						    line-height: 1.15;
+						  }
+						  .brand strong::after {
+						    content: "｜";
+						    margin: 0 .25rem;
+						    color: #9aa38a;
+						    font-weight: 400;
+						  }
+						
+						  /* 副标题同排、略小、弱化颜色 */
+						  .brand span {
+						    display: inline;
+						    font-size: clamp(.9rem, 2.2vw, 1.05rem);
+						    line-height: 1.15;
+						    color: var(--muted, #666);
+						  }
+						}
+						
+						/* 6.7寸等更大手机（视口≥430px）可再略放大一点字重，可选 */
+						@media (min-width: 430px) and (max-width: 600px) {
+						  .brand strong { font-size: clamp(1.05rem, 2.2vw, 1.22rem); }
+						  .brand span   { font-size: clamp(.95rem, 2vw, 1.08rem); }
+						}
+						
+						/* 手机端通用：≤768px */
+						@media (max-width: 768px) {
+						  /* 头部容器常见命名兼容：任选其一存在即可生效 */
+						  header, .header, .site-header, #header { 
+						    padding: 8px 12px;
+						  }
+						
+						  /* 品牌行：Logo 左、标题区右 */
+						  .brand, .topbar, .header-inner, .logo-wrap {
+						    display: flex;
+						    align-items: center;
+						    gap: 10px;
+						  }
+						
+						  /* Logo 变小一点 */
+						  .brand img,
+						  .logo img,
+						  .site-logo,
+						  .header-logo img {
+						    width: 88px;              /* 比现在更小一点 */
+						    height: auto;
+						  }
+						
+						  /* 让标题能换成两行：主副标题分行显示 */
+						  .brand-text,
+						  .site-title,
+						  .header-title {
+						    line-height: 1.15;
+						  }
+						  .brand-text .title,
+						  .site-title .title,
+						  .header-title .title {
+						    display: block;           /* 主标题独占一行 */
+						    font-weight: 700;
+						    font-size: 16px;
+						  }
+						  .brand-text .subtitle,
+						  .site-title .subtitle,
+						  .header-title .subtitle {
+						    display: block;           /* 副标题独占一行 */
+						    font-size: 12px;
+						    color: #666;
+						    margin-top: 2px;
+						  }
+						
+						  /* 如果目前你的标题在一个标签里（主|副）且已手动加了 <br>，保证能断行 */
+						  .one-line-title { white-space: normal; }
+						
+						  /* 导航改为横向一行排列 */
+						  nav ul,
+						  .nav ul,
+						  .site-nav ul,
+						  #nav ul {
+						    display: flex;
+						    flex-wrap: nowrap;        /* 不换行 */
+						    gap: 8px;
+						    overflow-x: auto;         /* 不够宽时可横向滑动 */
+						    padding: 0;
+						    margin: 10px 0 0;
+						    list-style: none;
+						  }
+						  nav ul li,
+						  .nav ul li,
+						  .site-nav ul li,
+						  #nav ul li {
+						    flex: 1 1 auto;           /* 均分一行 */
+						    text-align: center;
+						  }
+						  nav ul li a,
+						  .nav ul li a,
+						  .site-nav ul li a,
+						  #nav ul li a {
+						    display: block;
+						    padding: 10px 6px;
+						    font-size: 14px;
+						    white-space: nowrap;      /* 始终横向 */
+						  }
+						}
+						
+						/* 重点优化 ≥6.1 寸常见宽度（iPhone 12/13/14/15 = 390px；老机型 375px） */
+						@media (min-width: 375px) and (max-width: 768px) {
+						  .brand img,
+						  .logo img,
+						  .site-logo,
+						  .header-logo img {
+						    width: 84px;              /* 再小一点，在6.1寸上更协调 */
+						  }
+						  .brand-text .title,
+						  .site-title .title,
+						  .header-title .title { font-size: 17px; }
+						  .brand-text .subtitle,
+						  .site-title .subtitle,
+						  .header-title .subtitle { font-size: 13px; }
+						}
+
+
                 </style>
 
 		</style>
