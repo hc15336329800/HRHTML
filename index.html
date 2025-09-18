@@ -599,6 +599,31 @@
 					line-height: 1.22;
 				}
 
+				/* 手机端产品卡片横向排布，图片左文案右 */
+				.product-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.product-card {
+					display: flex;
+					align-items: center;
+					gap: 1rem;
+				}
+
+				.product-card figure {
+					flex: 0 0 42%;
+					aspect-ratio: 4 / 3;
+				}
+
+				.product-card .body {
+					padding: 1rem 1rem 1rem 0;
+				}
+
+				.product-card h3 {
+					font-size: 1.05rem;
+				}
+
+
 				.brand strong::after {
 					/* 移除单行分隔符 */
 					content: none;
@@ -947,9 +972,9 @@
 				<section>
 					<h3>联系我们</h3>
 					<ul>
-						<li><strong>电话：</strong><a href="tel:0632-5155595">0632-5155595</a> / 
-						<!-- <a href="tel:13356379916">133 5637 9916</a><span class="badge">点击拨打</span></li> -->
-						  <a href="tel:13356379916">133 5637 9916 <span class="badge">点击拨打</span></a>
+						<li><strong>电话：</strong><a href="tel:0632-5155595">0632-5155595</a> /
+							<!-- <a href="tel:13356379916">133 5637 9916</a><span class="badge">点击拨打</span></li> -->
+							<a href="tel:13356379916">133 5637 9916 <span class="badge">点击拨打</span></a>
 
 						<li><strong>邮箱：</strong><a href="mailto:sdhrjt168@163.com">sdhrjt168@163.com</a></li>
 						<li><strong>网址：</strong><a href="https://www.sdhrjt.net/"
@@ -979,8 +1004,8 @@
 							style="vertical-align:middle;margin-right:4px;" />鲁公网安备 37048102006103号
 					</a>
 					<!-- <span class="badge">|</span> -->
-					<a href="https://beian.miit.gov.cn/" rel="noopener noreferrer"
-						style="color:#fff;"> | 鲁ICP备19000392号-2</a>
+					<a href="https://beian.miit.gov.cn/" rel="noopener noreferrer" style="color:#fff;"> |
+						鲁ICP备19000392号-2</a>
 				</p>
 			</div>
 		</footer>
