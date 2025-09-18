@@ -553,25 +553,27 @@
 					min-width: 0;
 				}
 
-				.brand strong {
-					display: block;
-					/* 主标题独占一行 */
-					font-size: 1rem;
-					line-height: 1.2;
-				}
+				
+				                                .brand strong {
+				                                        display: block;
+				                                        /* 主标题独占一行 */
+				                                        font-size: 1.12rem;
+				                                        line-height: 1.22;
+				                                }
+				
+								.brand strong::after {
+									/* 移除单行分隔符 */
+									content: none;
+								}
+				
+				                                .brand span {
+				                                        display: block;
+				                                        font-size: 1rem;
+				                                        line-height: 1.24;
+				                                        color: var(--muted);
+				                                }
+							}
 
-				.brand strong::after {
-					/* 移除单行分隔符 */
-					content: none;
-				}
-
-				.brand span {
-					display: block;
-					font-size: .9rem;
-					line-height: 1.2;
-					color: var(--muted);
-				}
-			}
 
 			/* 手机端通用：≤768px */
 			@media (max-width: 768px) {
@@ -676,17 +678,19 @@
 					text-align: center;
 				}
 
-				nav ul li a,
-				.nav ul li a,
-				.site-nav ul li a,
-				#nav ul li a {
-					display: block;
-					padding: 0.6rem 0.4rem;
-					font-size: 0.9rem;
-					white-space: nowrap;
-					/* 始终横向 */
-				}
-			}
+				
+				                                nav ul li a,
+				                                .nav ul li a,
+				                                .site-nav ul li a,
+				                                #nav ul li a {
+				                                        display: block;
+				                                        padding: 0.65rem 0.4rem;
+				                                        font-size: 1rem;
+				                                        line-height: 1.3;
+				                                        white-space: nowrap;
+				                                        /* 始终横向 */
+				                                }
+				                        }
 		</style>
 
 
@@ -698,7 +702,7 @@
 			<div class="topbar">
 				<div class="brand">
 					<img src="./images/LOG.png" alt="山东恒仁(集团)工贸有限公司企业标识" width="200" height="64" loading="lazy" />
-					<div>
+					<div style="    margin-left: 13px;">
 						<strong>山东恒仁(集团)工贸有限公司</strong>
 						<!-- 修改：副标题合规化——由“玉米深加工引领者”改为更客观的服务表述 -->
 						<span>玉米深加工与淀粉糖产品与服务</span>
